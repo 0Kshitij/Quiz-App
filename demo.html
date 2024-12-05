@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #1f1f1f;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAz0lEQVR42mJ8dGCAwAAAABABHAcowAAH4AAHdZAPHkAAAAASUVORK5CYII=');
+            background-size: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-container input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-switch {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container" id="loginForm">
+    <h2 style="color: #4caf50;">Login</h2>
+    <form>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button type="button" onclick="login()">Login</button>
+    </form>
+    <p class="form-switch" style="color: #555;">Don't have an account? <a onclick="showRegistrationForm()">Register</a></p>
+    <p class="error-message" id="loginError"></p>
+</div>
+
+<div class="form-container" id="registrationForm" style="display: none;">
+    <h2 style="color: #4caf50;">Register</h2>
+    <form>
+        <input type="text" id="registerUsername" placeholder="Username">
+        <input type="password" id="registerPassword" placeholder="Password">
+        <input type="text" id="phoneNumber" placeholder="Phone Number">
+        <input type="text" id="erpId" placeholder="ERP ID">
+        <input type="text" id="class" placeholder="Class">
+        <button type="button" onclick="register()">Register</button>
+    </form>
+    <p class="form-switch" style="color: #555;">Already have an account? <a onclick="showLoginForm()">Login</a></p>
+    <p class="error-message" id="registerError"></p>
+</div>
+
+<script>
+    function showRegistrationForm() {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registrationForm').style.display = 'block';
+    }
+
+    function showLoginForm() {
+        document.getElementById('registrationForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
+    }
+
+    function login() {
+        var username = document.getElementById('loginUsername').value;
+        var password = document.getElementById('loginPassword').value;
+
+        // Implement your login logic here
+        // For now, we'll just show an error message
+        // document.getElementById('loginError').innerText = "Invalid username or password";
+    }
+
+    function register() {
+        var username = document.getElementById('registerUsername').value;
+        var password = document.getElementById('registerPassword').value;
+        var phoneNumber = document.getElementById('phoneNumber').value;
+        var erpId = document.getElementById('erpId').value;
+        var userClass = document.getElementById('class').value;
+
+        // Implement your registration logic here
+        // For now, we'll just show an error message
+        document.getElementById('registerError').innerText = "Registration failed";
+    }
+</script>
+
+</body>
+</html>
